@@ -1,0 +1,52 @@
+
+/* ======= PAGINATION ======= */
+.pagination-box {
+    display: flex;
+    justify-content: center;
+    margin: 4vmax;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.pageItem {
+    background-color: white;
+    list-style: none;
+    border: 1px solid rgba(0, 0, 0, 0.060);
+    padding: 1vmax 1.5vmax;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.pageItem:first-child {
+    border-radius: 5px 0 0 5px;
+}
+.pageItem:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.pageLink {
+    text-decoration: none;
+    font: 300 0.7vmax sans-serif;
+    color: darkslategray;
+    transition: all 0.3s;
+}
+
+.pageItem:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.pageItem:hover .pageLink {
+    color: rgb(80, 80, 80);
+}
+
+.pageItemActive {
+    background-color: tomato;
+}
+
+.pageLinkActive {
+    color: white;
+}

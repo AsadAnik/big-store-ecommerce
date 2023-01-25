@@ -1,0 +1,206 @@
+.product-details {
+    width: 100vw;
+    max-width: 100%;
+    padding: 6vmax;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.product-details>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2vmax;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+.product-details>div:last-child {
+    align-items: flex-start;
+}
+
+.carousel-img {
+    width: 20vmax;
+}
+
+.details-block-1>h2 {
+    color: rgb(54, 54, 54);
+    font: 600 1.6vmax;
+}
+
+.details-block-1>p {
+    color: rgba(54, 54, 54, 0.582);
+    font: 200 0.6vmax sans-serif;
+}
+
+.details-block-2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.205);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+    width: 70%;
+    padding: 1vmax 0;
+}
+
+.details-block-2-span {
+    font: 200 1vmax sans-serif;
+    color: rgba(0, 0, 0, 0.687);
+}
+
+.details-block-3 {
+    width: 70%;
+}
+
+.details-block-3>h1 {
+    color: rgba(17, 17, 17, 0.795);
+    font: 400 1.8vmax sans-serif;
+    margin: 1vmax 0;
+}
+
+.details-block-3-1 {
+    display: flex;
+    align-items: center;
+}
+
+.details-block-3-1-1>button {
+    border: none;
+    background-color: rgba(17, 17, 17, 0.616);
+    color: white;
+    padding: 0.5vmax;
+    cursor: pointer;
+    transition: all 0.5;
+}
+
+.details-block-3-1-1>button:hover {
+    background-color: rgba(17, 17, 17, 0.795);
+}
+
+.details-block-3-1-1>input {
+    border: none;
+    padding: 0.5vmax;
+    width: 2vmax;
+    text-align: center;
+    outline: none;
+    font: 400 0.8vmax sans-serif;
+    color: rgba(17, 17, 17, 0.74);
+}
+
+.details-block-3>p {
+    border-top: 1px solid rgba(0, 0, 0, 0.205);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+    padding: 1vmax 0;
+    color: rgba(0, 0, 0, 0.651);
+    font: 400 1vmax sans-serif;
+    margin: 1vmax 0;
+}
+
+.details-block-4 {
+    color: rgba(0, 0, 0, 0.897);
+    font: 500 1.2vmax sans-serif;
+}
+
+.details-block-4>p {
+    color: rgba(0, 0, 0, 0.534);
+    font: 300 0.8vmax sans-serif;
+}
+
+/* ----- Reviews ------ */
+.reviews {
+    display: flex;
+    overflow: auto;
+}
+
+.review-heading {
+    color: #000000be;
+    font: 500 1.4vmax sans-serif;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.226);
+    padding: 1vmax;
+    width: 20vmax;
+    margin: auto;
+    margin-bottom: 4vmax;
+}
+
+.no-reviews {
+    font: 400 1.3vmax "Gill Sans";
+    text-align: center;
+    color: rgba(0, 0, 0, 0.548);
+    margin-bottom: 5rem;
+}
+
+.product-slider-item {
+    max-width: 400px;
+}
+.product-slider-item .carousel-control-prev:hover {
+    background-color: black;
+}
+
+.product-slider-item .slider-img {
+    max-height: 400px;
+    opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+    .product-details {
+        flex-direction: column;
+        height: unset;
+    }
+
+    .product-details>div:last-child {
+        align-items: center;
+    }
+
+    .details-block-1>h2 {
+        font-size: 2.8vmax;
+        text-align: center;
+    }
+
+    .details-block-1>p {
+        text-align: center;
+        font-size: 1vmax;
+    }
+
+    .details-block-2 {
+        justify-content: center;
+    }
+
+    .details-block-2>span {
+        font-size: 1.5vmax;
+    }
+
+    .details-block-3-1 {
+        flex-direction: column;
+    }
+
+    .details-block-3-1-1 {
+        padding: 2vmax 0;
+    }
+
+    .details-block-3-1-1>button {
+        padding: 1.2vmax;
+        width: 4vmax;
+    }
+
+    .details-block-3-1-1>input {
+        padding: 1.5vmax;
+        width: 4vmax;
+        font: 400 1.8vmax sans-serif;
+    }
+
+    .details-block-3>p {
+        padding: 2.5vmax 0;
+        text-align: center;
+        font: 400 2vmax sans-serif;
+    }
+
+    .details-block-4 {
+        font: 500 2.5vmax sans-serif;
+    }
+
+    .details-block-4>p {
+        font: 300 1.8vmax sans-serif;
+    }
+}

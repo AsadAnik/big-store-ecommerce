@@ -1,0 +1,95 @@
+.button-primary {
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s;
+    background-color: tomato;
+    font: 500 0.7vmax;
+    border-radius: 20px;
+    padding: 0.5vmax 2vmax;
+    margin: 1vmax;
+    outline: none;
+}
+
+.button-primary:hover {
+    background-color: orange;
+}
+
+.button-secondary {
+    border: none;
+    background-color: tomato;
+    font: 500 0.7vmax sans-serif;
+    border-radius: 20px;
+    padding: 0.6vmax 2vmax;
+    margin: 1vmax 0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+    outline: none;
+}
+
+.button-secondary:hover {
+    background-color: orange;
+    transform: scale(1.1);
+}
+
+
+/* ===== Button Danger ====== */
+.button-danger {
+    border: none;
+    background-color: brown;
+    font: 500 0.7vmax sans-serif;
+    border-radius: 20px;
+    padding: 0.6vmax 2vmax;
+    margin: 1vmax 0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+    outline: none;
+}
+
+.button-danger:hover {
+    background-color: red;
+}
+
+/* ===== Button Agree ===== */
+.button-agree {
+    border: none;
+    background-color: green;
+    font: 500 0.7vmax sans-serif;
+    border-radius: 20px;
+    padding: 0.6vmax 2vmax;
+    margin: 1vmax 0;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+    outline: none;
+}
+
+.button-agree:hover {
+    background-color: lightgreen;
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .button-primary {
+        font: 500 1.7vmax sans-serif;
+        padding: 1.5vmax;
+        width: 20vmax;
+        margin: 3vmax 0;
+    }
+
+    .button-secondary {
+        font: 500 1.7vmax sans-serif;
+        padding: 1.5vmax;
+        width: 20vmax;
+        margin: 3vmax 0;
+    }
+
+    .button-danger {
+        font: 500 1.7vmax sans-serif;
+        padding: 1.5vmax;
+        width: 20vmax;
+        margin: 3vmax 0;
+    }
+}

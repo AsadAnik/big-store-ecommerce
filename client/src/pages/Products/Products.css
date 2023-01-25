@@ -1,0 +1,42 @@
+.products-heading {
+    margin: 2vmax auto;
+    width: 15vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+    padding: 2vmax;
+    color: rgba(0, 0, 0, 0.678);
+    font: 500 1.5vmax sans-serif;
+    text-align: center;
+}
+
+.products-wrapper {
+    display: flex;
+    margin: 2vmax auto;
+    width: 80vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 30vh;
+}
+
+.filter-box {
+    width: 10vmax;
+    position: absolute;
+    /* top: 10vmax; */
+    /* left: 4vmax; */
+}
+
+.category-box {
+    padding: 0%;
+}
+
+.category-link {
+    list-style: none;
+    color: rgba(0, 0, 0, 0.61);
+    font: 400 0.8vmax sans-serif;
+    margin: 0.4vmax;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.category-link:hover {
+    color: tomato;
+}

@@ -1,0 +1,26 @@
+.nav-item{
+    text-align: center;
+    cursor: pointer;
+}
+.nav-item a{
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+ul.dropdown-menu.show {
+    /* right: 9rem; */
+    /* margin-right: 22rem; */
+    position: absolute;
+    left: -20%;
+    top: 130%;
+}
+
+ul.dropdown-menu.show > li > a {
+    font-size: 13px;
+}
+
+.cart-badge{
+    background-color: red;
+    position: absolute;
+    box-shadow: 0px 0px 5px gray;
+}

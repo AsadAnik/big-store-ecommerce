@@ -1,0 +1,14 @@
+.product-preview-heading {
+    border-bottom: 3px solid lightgray;
+    width: 200px;
+    margin: 0 auto;
+    line-height: 3rem;
+}
+
+.products-wrapper {
+    display: flex;
+    margin: 2vmax auto;
+    width: 80vw;
+    flex-wrap: wrap;
+    justify-content: center;
+}

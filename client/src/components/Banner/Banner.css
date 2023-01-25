@@ -1,0 +1,16 @@
+.carousel-item{
+    height: 450px;
+}
+.slider-img{
+    opacity: .5;
+}
+
+.carousel-caption{
+    margin-bottom: 8%;
+}
+
+@media only screen and (max-width: 768px) {
+    .carousel{
+        display: none;
+    }
+}

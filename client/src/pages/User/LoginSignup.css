@@ -1,0 +1,164 @@
+/***********The Login & Register CSS***********/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+div.form-row {
+    border: 5px solid lightgray;
+    padding: 40px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px lightgray;
+    margin-left: 8%;
+    margin-right: 8%;
+    justify-content: center;
+}
+
+.register-section-2 .form-group,
+.login-section .form-group {
+    margin-bottom: 1rem;
+}
+
+div.login-section {
+    width: 30rem;
+    float: left;
+    border-right: 1px solid lightgray;
+    padding-right: 5rem;
+}
+
+div.login-section-2 {
+    width: 30rem;
+    float: right;
+}
+
+div.register-section {
+    width: 30rem;
+    float: right;
+    padding-left: 3rem;
+}
+
+div.register-section-2 {
+    width: 30rem;
+    float: left;
+    border-right: 1px solid lightgray;
+    padding-left: 3rem;
+}
+
+div.form-label h1 {
+    font-size: 27px;
+    font-family: 'Quicksand', sans-serif;
+    color: #cf3d27;
+    font-weight: bold;
+}
+
+div.form-label p {
+    font-family: 'Quicksand', sans-serif;
+}
+
+button[type="submit"].login-btn,
+button[type="submit"].register-btn,
+a.register-btn,
+a.login-btn {
+    width: 100%;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    background-color: orange;
+    color: white;
+}
+
+a.register-btn:hover,
+button[type="submit"].register-btn:hover {
+    background: none;
+    border: 1px solid orange;
+    color: #000;
+}
+
+button[type="submit"].login-btn,
+a.login-btn {
+    background: rgb(255, 99, 71);
+    color: #fff;
+    border: 2px solid;
+    transform: 0.5s ease-in;
+}
+
+button[type="submit"].login-btn:hover,
+a.login-btn:hover {
+    background: none;
+    border: 2px solid rgb(255, 99, 71);
+    color: #000;
+}
+
+/**---- Customized the bootstrap default input bar Colors ---**/
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #f3d1cb;
+    outline: 0;
+    box-shadow: none;
+}
+
+/* ----- Avatar Preview Image ---- */
+.avatar-preview-img {
+    height: 100px;
+    width: 100px;
+    margin-left: 8rem;
+    border-radius: 20px;
+}
+
+
+
+/**The Media Quries for Phone Screen Confortable**/
+/**iPhone 6,7,8 or Uppper Screen Comfortable**/
+@media only screen and (max-width: 720px) {
+    div.form-row {
+        margin: 0;
+        border-radius: 0;
+        border: 0;
+        padding: 0 10px;
+        padding-bottom: 3rem;
+    }
+
+    section#login-register {
+        margin-bottom: 0 !important;
+    }
+
+    div.login-section,
+    div.login-section-2 {
+        width: 100%;
+        float: unset;
+        border-right: 0;
+        padding: 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: center;
+    }
+
+    form.form-section {
+        margin-bottom: 3rem;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    div.login-section-2 div.form-section {
+        margin-left: 0 !important;
+    }
+
+    /**Registation Form**/
+    div.register-section,
+    div.register-section-2 {
+        width: 100%;
+        float: unset;
+        padding: 0;
+        margin-top: 2rem;
+        text-align: center;
+        display: grid;
+        justify-items: center;
+        border-right: 0;
+    }
+
+    /* ----- Avatar Preview Image ---- */
+    .avatar-preview-img {
+        height: 100px;
+        width: 100px;
+        margin-left: 8%;
+        border-radius: 20px;
+    }
+}
