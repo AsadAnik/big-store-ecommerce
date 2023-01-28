@@ -2,6 +2,8 @@ import {
     ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, ALL_PRODUCT_FAIL,
     PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL,
     NEW_REVIEW_REQUEST, NEW_REVIEW_SUCCESS, NEW_REVIEW_FAIL, NEW_REVIEW_RESET,
+    ADMIN_PRODUCT_REQUEST, ADMIN_PRODUCT_SUCCESS, ADMIN_PRODUCT_FAIL,
+    DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, DELETE_PRODUCT_FAIL, DELETE_PRODUCT_RESET,
     CLEAR_ERRORS,
 } from '../constants/productConstants';
 
@@ -14,6 +16,7 @@ import {
 export const allProductsReducer = (state = { products: [] }, action) => {
     switch(action.type){
         case ALL_PRODUCT_REQUEST:
+        case ADMIN_PRODUCT_REQUEST:
             return {
                 loading: true,
                 products: [],
@@ -28,7 +31,14 @@ export const allProductsReducer = (state = { products: [] }, action) => {
                 resultPerPage: action.payload.resultPerPage,
             };
 
+        case ADMIN_PRODUCT_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+            };
+
         case ALL_PRODUCT_FAIL:
+        case ADMIN_PRODUCT_FAIL:
             return {
                 loading: false,
                 error: action.payload,
@@ -120,6 +130,46 @@ export const newReviewReducer = (state = {}, action) => {
             return {
                 ...state,
                 error: null,
+            };
+
+        default:
+            return state;
+    }
+};
+
+
+/**
+ * ===== Product Delete & Update Reducer for Admin ======
+ * @param {Object} state 
+ * @param {Object} action 
+ * @returns 
+ */
+export const productReducer = (state = {}, action) => {
+    switch(action.type) {
+        case DELETE_PRODUCT_REQUEST:
+            return {
+                ...state,
+                loading: true,
+            };
+
+        case DELETE_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isDeleted: action.payload,
+            };
+
+        case DELETE_PRODUCT_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
+            };
+
+        case DELETE_PRODUCT_RESET:
+            return {
+                ...state,
+                isDeleted: false,
             };
 
         default:

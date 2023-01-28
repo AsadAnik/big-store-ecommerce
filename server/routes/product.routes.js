@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {
+    showAdminProducts,
     showAllProducts,
     showSingleProduct,
     createProduct,
@@ -10,6 +11,12 @@ const {
     deleteReview,
 } = require('../controllers/product.controller');
 const { isAuthenticatedUser: auth, authorizeRoles: authRole } = require('../middleware/auth');
+
+
+/**
+ * ---- Admin Products ------
+ */
+router.get('/admin', auth, authRole("admin"), showAdminProducts);
 
 /**
  * ---- Create Product endpoint..

@@ -82,9 +82,11 @@ const Navbar = () => {
                   <li><Link to={'/account'} className="dropdown-item">Account</Link></li>
                   <li><Link to={'/orders'} className="dropdown-item">Order</Link></li>
                   {
-                    isAuthenticated ? (
-                      <li><Link to={'/dashboard'} className="dropdown-item">Dashboard</Link></li>
-                    ): null
+                    isAuthenticated ? 
+                      user.role === "admin" && (
+                        <li><Link to={'/admin/dashboard'} className="dropdown-item">Dashboard</Link></li>
+                      )
+                    : null
                   }
                   <li><hr className="dropdown-divider" /></li>
                   {

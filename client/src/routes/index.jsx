@@ -25,6 +25,7 @@ import UpdateAccount from '../pages/User/UpdateAccount';
 import PasswordUpdate from '../pages/User/PasswordUpdate';
 
 import Dashboard from '../pages/Admin/Dashboard/Dashboard';
+import AdminProductList from '../pages/Admin/ProductList/ProductList';
 
 
 export default function publicRoutes() {
@@ -87,7 +88,9 @@ export default function publicRoutes() {
 
             <Route path="/cart" element={<Cart />} />
             <Route path="/shipping" element={<Shipping />} />
-            <Route path="/order/confirm" element={<ConfirmOrder />} />
+            <Route path="/order/confirm" element={<PrivateRoute isAccount={true} />}>
+                <Route path="/order/confirm" element={<ConfirmOrder />} />
+            </Route>
 
             {/* -----  Wrapping with Stripe Loader with Stripe API Key ----- */}
             {stripeApiKey &&
@@ -95,13 +98,24 @@ export default function publicRoutes() {
             }
 
             {/* ---- Order System ---- */}
-            <Route path="/success" element={<SuccessOrder />} />
-            <Route path="/orders" element={<MyOrders />} />
-            <Route path="/order/:id" element={<OrderDetails />} />
+            <Route path="/success" element={<PrivateRoute isAccount={true} />}>
+                <Route path="/success" element={<SuccessOrder />} />
+            </Route>
+            <Route path="/orders" element={<PrivateRoute isAccount={true} />}>
+                <Route path="/orders" element={<MyOrders />} />
+            </Route>
 
-            {/* ----- Admin Dashboard ---- */}
-            <Route path="/dashboard" element={<PrivateRoute isAccount={true} />}>
-                <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/order/:id" element={<PrivateRoute isAccount={true} />}>
+                <Route path="/order/:id" element={<OrderDetails />} />
+            </Route>
+
+            {/* ----- Admin Dashboard And Admin Routes ---- */}
+            <Route path="/admin/dashboard" element={<PrivateRoute isAdmin={true} />}>
+                <Route path="/admin/dashboard" element={<Dashboard />} />
+            </Route>
+
+            <Route path="/admin/products" element={<PrivateRoute isAdmin={true} />}>
+                <Route path="/admin/products" element={<AdminProductList />} />
             </Route>
         </Routes>
     )

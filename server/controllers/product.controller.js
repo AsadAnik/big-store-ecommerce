@@ -39,7 +39,7 @@ exports.showAllProducts = catchAsyncErrors(async function (req, res, next) {
     const apiFeatures = new ApiFeatures(Product.find(), req.query)
         .search()
         .filter();
-    
+
     // let filteredProducts = await apiFeatures.query;
     // let filteredProductsCount = filteredProducts.length;
     apiFeatures.pagination(resultPerPage);
@@ -53,6 +53,25 @@ exports.showAllProducts = catchAsyncErrors(async function (req, res, next) {
         productsCount,
         // filteredProductsCount,
         resultPerPage,
+    });
+});
+
+
+
+/**
+ * ------ To Show Admin Products (ADMIN) ------
+ * @param {*} req 
+ * @param {*} res
+ * @param {*} next
+ * @returns
+ */
+exports.showAdminProducts = catchAsyncErrors(async function (_req, res, next) {
+    const products = await Product.find();
+    if (!products) return next(new ErrorHandler('No Products Here', 404));
+
+    res.status(200).json({
+        success: true,
+        products,
     });
 });
 
@@ -171,7 +190,7 @@ exports.createProductReviewOrUpdate = catchAsyncErrors(async function (req, res,
     product.ratings = avgOfRatings;
 
     await product.save({ validateBeforeSave: false });
-    
+
     res.status(200).json({
         success: true,
     });

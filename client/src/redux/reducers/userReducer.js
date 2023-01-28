@@ -5,6 +5,7 @@ import {
     LOGOUT_SUCCESS, LOGOUT_FAIL,
     UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_RESET, UPDATE_PROFILE_FAIL,
     PASSWORD_UPDATE_REQUEST, PASSWORD_UPDATE_SUCCESS, PASSWORD_UPDATE_RESET, PASSWORD_UPDATE_FAIL,
+    ALL_USERS_REQUEST, ALL_USERS_SUCCESS, ALL_USERS_FAIL,
     CLEAR_ERRORS,
 } from '../constants/userConstants';
 
@@ -111,6 +112,46 @@ export const accountReducer = (state = { user: {} }, action) => {
 
         case UPDATE_PROFILE_FAIL:
         case PASSWORD_UPDATE_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
+            };
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null,
+            };
+
+        default:
+            return state;
+    }
+};
+
+
+/**
+ * ====== All Users Reducer for Admin =====
+ * @param {*} state 
+ * @param {*} action 
+ * @returns 
+ */
+export const allUsersReducer = (state = { users: [] }, action) => {
+    switch(action.type) {
+        case ALL_USERS_REQUEST:
+            return {
+                ...state,
+                loading: true,
+            };
+
+        case ALL_USERS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                users: action.payload,
+            };
+
+        case ALL_USERS_FAIL: 
             return {
                 ...state,
                 loading: false,

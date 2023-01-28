@@ -84,6 +84,25 @@ export const orderDetails = (id) => async (dispatch) => {
     }
 };
 
+/**
+ * ====== All Orders Action Admin =====
+ * @returns 
+ */
+export const getAllOrders = () => async (dispatch) => {
+    try {
+        dispatch({ type: ALL_ORDERS_REQUEST });
+
+        const { data } = await axios.get(`${API_URL}/order/all`, config);
+
+        dispatch({ type: ALL_ORDERS_SUCCESS, payload: data.orders });
+    } catch (error) {
+        dispatch({
+            type: ALL_ORDERS_FAIL,
+            payload: error.response.data.message,
+        });
+    }
+};
+
 
 
 /**

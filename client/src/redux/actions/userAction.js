@@ -6,6 +6,7 @@ import {
     LOGOUT_SUCCESS, LOGOUT_FAIL,
     UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL,
     PASSWORD_UPDATE_REQUEST, PASSWORD_UPDATE_SUCCESS, PASSWORD_UPDATE_FAIL,
+    ALL_USERS_REQUEST, ALL_USERS_SUCCESS, ALL_USERS_FAIL,
     CLEAR_ERRORS,
 } from '../constants/userConstants';
 import { API_URL } from '../../config';
@@ -72,7 +73,7 @@ export const register = (userData) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
     try {
         await axios.get(`${API_URL}/auth/logout`, config);
-        
+
         dispatch({ type: LOGOUT_SUCCESS });
 
     } catch (error) {
@@ -140,6 +141,24 @@ export const passwordUpdate = (password) => async (dispatch) => {
         dispatch({ type: PASSWORD_UPDATE_FAIL, payload: error.response.data.message });
     }
 };
+
+
+/**
+ * ====== All Users Admin =====
+ * @returns 
+ */
+export const getAllUsers = () => async (dispatch) => {
+    try {
+        dispatch({ type: ALL_USERS_REQUEST });
+        
+        const { data } = await axios.get(`${API_URL}/user/admin/users`, config);
+
+        dispatch({ type: ALL_USERS_SUCCESS, payload: data.users });
+    } catch (error) {
+        dispatch({ type: ALL_USERS_FAIL, payload: error.response.data.message });
+    }
+};
+
 
 /**
  * ====== Clear All Errors ======
