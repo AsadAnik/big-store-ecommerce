@@ -26,8 +26,10 @@ import PasswordUpdate from '../pages/User/PasswordUpdate';
 
 import Dashboard from '../pages/Admin/Dashboard/Dashboard';
 import AdminProductList from '../pages/Admin/ProductList/ProductList';
+import AdminUpdateProduct from '../pages/Admin/ProductList/ProductUpdate';
 
 
+// Public Routes..
 export default function publicRoutes() {
     const [stripeApiKey, setStripeApiKey] = useState('');
 
@@ -52,7 +54,7 @@ export default function publicRoutes() {
         getStripeApiKey();
     }, []);
 
-    console.log("Stripe API Key", stripeApiKey);
+    // console.log("Stripe API Key", stripeApiKey);
 
 
     return (
@@ -86,6 +88,7 @@ export default function publicRoutes() {
                 <Route path="/password/update" element={<PasswordUpdate />} />
             </Route>
 
+            {/* ----- Add to cart & Order Products ----- */}
             <Route path="/cart" element={<Cart />} />
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/order/confirm" element={<PrivateRoute isAccount={true} />}>
@@ -116,6 +119,10 @@ export default function publicRoutes() {
 
             <Route path="/admin/products" element={<PrivateRoute isAdmin={true} />}>
                 <Route path="/admin/products" element={<AdminProductList />} />
+            </Route>
+
+            <Route path="/admin/product/:productId" element={ <PrivateRoute isAdmin={true} /> }>
+                <Route path="/admin/product/:productId" element={ <AdminUpdateProduct /> } />
             </Route>
         </Routes>
     )

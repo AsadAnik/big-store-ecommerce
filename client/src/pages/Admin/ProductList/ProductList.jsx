@@ -20,6 +20,7 @@ export default function ProductList() {
     const { error, products  } = useSelector((state) => state.products);
     const { error: deleteError, isDeleted } = useSelector((state) => state.product); 
 
+    // useEffect Hook..
     useEffect(() => {
         if (error) {
             Alert.error(error);

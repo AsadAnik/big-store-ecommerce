@@ -10,6 +10,7 @@ import { getAllOrders } from "../../../redux/actions/orderAction";
 import { getAllUsers } from "../../../redux/actions/userAction";
 import MetaData from "../../../MetaData";
 
+// Dashboard Component..
 export default function Dashboard() {
   const dispatch = useDispatch();
 
