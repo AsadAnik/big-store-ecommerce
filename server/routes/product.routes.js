@@ -11,6 +11,7 @@ const {
     deleteReview,
 } = require('../controllers/product.controller');
 const { isAuthenticatedUser: auth, authorizeRoles: authRole } = require('../middleware/auth');
+const uploadImage = require('../middleware/uploadImage');
 
 
 /**
@@ -21,7 +22,12 @@ router.get('/admin', auth, authRole("admin"), showAdminProducts);
 /**
  * ---- Create Product endpoint..
  */
-router.post('/create', auth, authRole("admin"), createProduct);
+router.post('/create', auth, authRole("admin"), uploadImage('products', 'images', true), createProduct);
+
+/**
+ * ---- Another Product endpoint ----
+ */
+// router.post('/create', uploadImage("posts", "avatar"), createProduct);
 
 /**
  * ----- Product Review Or Update -----

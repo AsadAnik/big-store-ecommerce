@@ -14,6 +14,13 @@ const ApiFeatures = require('../utils/apiFeatures')
 exports.createProduct = catchAsyncErrors(async function (req, res, next) {
     // adding userId also for product..
     req.body.user = req.user._id;
+
+    // Problem Of Uploading Images and file not found into req.file ..
+    // https://github.dev/meabhisingh/mernProjectEcommerce/tree/master/frontend/src
+    // Let's see what is the images is..
+    console.log("File -- ", req.file);
+    console.log("Body Images -- ", req.body);
+
     const product = await Product.create(req.body);
     if (!product) return next(new ErrorHandler('Can\'t Create Product', 500));
 

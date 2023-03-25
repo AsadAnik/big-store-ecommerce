@@ -4,6 +4,7 @@ import {
     PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL,
     NEW_REVIEW_REQUEST, NEW_REVIEW_SUCCESS, NEW_REVIEW_FAIL,
     ADMIN_PRODUCT_REQUEST, ADMIN_PRODUCT_SUCCESS, ADMIN_PRODUCT_FAIL,
+    NEW_PRODUCT_REQUEST, NEW_PRODUCT_SUCCESS, NEW_PRODUCT_FAIL,
     DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, DELETE_PRODUCT_FAIL,
     UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAIL,
     CLEAR_ERRORS,
@@ -118,6 +119,33 @@ export const getAdminProducts = () => async (dispatch) => {
     }
 };
 
+/**
+ * ====== Create Product By Admin ======
+ */
+export const createProductAdmin = (productData) => async (dispatch) => {
+    try {
+        dispatch({ type: NEW_PRODUCT_REQUEST });
+        const { data } = await axios.post(`${API_URL}/product/create`, productData, {
+            headers: {
+                "Content-type": "multipart/form-data",
+                "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Origin": `${API_URL}`
+            },
+            withCredentials: true,
+            mode: 'cors',
+        });
+        dispatch({
+            type: NEW_PRODUCT_SUCCESS,
+            payload: data,
+        });
+
+    } catch (error) {
+        dispatch({
+            type: NEW_PRODUCT_FAIL,
+            payload: error.response.data.message,
+        });
+    }
+};
 
 /**
  * ===== Delete Product Admin =====

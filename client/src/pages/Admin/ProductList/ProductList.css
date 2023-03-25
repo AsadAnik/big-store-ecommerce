@@ -8,6 +8,13 @@
     height: 100vh;
 }
 
+.text-success{
+    color: green;
+}
+.text-danger {
+    color: red;
+}
+
 #productListHeading {
     font: 400 2rem sans-serif;
     padding: 0.5vmax;

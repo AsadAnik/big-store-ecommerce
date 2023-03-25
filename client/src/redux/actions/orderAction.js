@@ -64,6 +64,7 @@ export const myOrders = () => async (dispatch) => {
     }
 };
 
+
 /**
  * ====== Order Details =====
  * @param {String} id 
@@ -84,6 +85,7 @@ export const orderDetails = (id) => async (dispatch) => {
     }
 };
 
+
 /**
  * ====== All Orders Action Admin =====
  * @returns 
@@ -98,6 +100,46 @@ export const getAllOrders = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ALL_ORDERS_FAIL,
+            payload: error.response.data.message,
+        });
+    }
+};
+
+
+/**
+ * ====== Order Update Action Admin ======
+ * @returns 
+ */
+export const updateOrder = (orderId, order) => async (dispatch) => {
+    try {
+        dispatch({ type: UPDATE_ORDER_REQUEST });
+
+        const { data } = await axios.put(`${API_URL}/order/${orderId}`, order, config);
+
+        dispatch({ type: UPDATE_ORDER_SUCCESS, payload: data.success });
+    } catch (error) {
+        dispatch({
+            type: UPDATE_ORDER_FAIL,
+            payload: error.response.data.message,
+        });
+    }
+};
+
+
+/**
+ * ====== Order Delete Action Admin ======
+ * @returns 
+ */
+export const deleteOrder = (orderId) => async (dispatch) => {
+    try {
+        dispatch({ type: DELETE_ORDER_REQUEST });
+
+        const { data } = await axios.delete(`${API_URL}/order/${orderId}`, config);
+
+        dispatch({ type: DELETE_ORDER_SUCCESS, payload: data.success });
+    } catch (error) {
+        dispatch({
+            type: DELETE_ORDER_FAIL,
             payload: error.response.data.message,
         });
     }

@@ -13,7 +13,7 @@ const corsConfig = {
 const middleware = [
     morgan('dev'),
     cors(corsConfig),
-    express.json(),
+    express.json({limit: '50mb'}),
     cookieParser(),
     // fileUpload(),
 ];

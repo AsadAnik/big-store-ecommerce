@@ -26,7 +26,11 @@ import PasswordUpdate from '../pages/User/PasswordUpdate';
 
 import Dashboard from '../pages/Admin/Dashboard/Dashboard';
 import AdminProductList from '../pages/Admin/ProductList/ProductList';
+import AdminCreateProduct from '../pages/Admin/ProductList/ProductCreate';
 import AdminUpdateProduct from '../pages/Admin/ProductList/ProductUpdate';
+import AdminOrderList from '../pages/Admin/OrderList/OrderList';
+import AdminOrderUpdate from '../pages/Admin/OrderList/OrderUpdate';
+import AdminUserList from '../pages/Admin/UserList/UserList';
 
 
 // Public Routes..
@@ -53,8 +57,6 @@ export default function publicRoutes() {
     useEffect(() => {
         getStripeApiKey();
     }, []);
-
-    // console.log("Stripe API Key", stripeApiKey);
 
 
     return (
@@ -121,8 +123,24 @@ export default function publicRoutes() {
                 <Route path="/admin/products" element={<AdminProductList />} />
             </Route>
 
+            <Route path="/admin/product" element={<PrivateRoute isAdmin={true} />}>
+                <Route path="/admin/product" element={<AdminCreateProduct />} />
+            </Route>
+
             <Route path="/admin/product/:productId" element={ <PrivateRoute isAdmin={true} /> }>
                 <Route path="/admin/product/:productId" element={ <AdminUpdateProduct /> } />
+            </Route>
+
+            <Route path="/admin/orders" element={ <PrivateRoute isAdmin={true} /> }>
+                <Route path="/admin/orders" element={ <AdminOrderList /> } />
+            </Route>
+
+            <Route path="/admin/order/:orderId" element={ <PrivateRoute isAdmin={true} /> }>
+                <Route path="/admin/order/:orderId" element={ <AdminOrderUpdate /> } />
+            </Route>
+
+            <Route path="/admin/users" element={ <PrivateRoute isAdmin={true} /> }>
+                <Route path="/admin/users" element={ <AdminUserList /> } />
             </Route>
         </Routes>
     )

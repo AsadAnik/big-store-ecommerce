@@ -11,7 +11,7 @@ const uploadImage = require('../middleware/uploadImage');
 /**
  * ---- Register User ----
  */
-router.post('/register', uploadImage.single("avatar"), registerUser);
+router.post('/register', uploadImage("avatars", "avatar"), registerUser);
 
 /**
  * ----- Login User ----

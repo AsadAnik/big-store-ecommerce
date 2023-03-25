@@ -6,6 +6,8 @@ import {
     UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_RESET, UPDATE_PROFILE_FAIL,
     PASSWORD_UPDATE_REQUEST, PASSWORD_UPDATE_SUCCESS, PASSWORD_UPDATE_RESET, PASSWORD_UPDATE_FAIL,
     ALL_USERS_REQUEST, ALL_USERS_SUCCESS, ALL_USERS_FAIL,
+    UPDATE_USER_REQUEST, UPDATE_USER_SUCCESS, UPDATE_USER_FAIL, UPDATE_USER_RESET,
+    DELETE_USER_REQUEST, DELETE_USER_SUCCESS, DELETE_USER_FAIL, DELETE_USER_RESET,
     CLEAR_ERRORS,
 } from '../constants/userConstants';
 
@@ -90,6 +92,8 @@ export const accountReducer = (state = { user: {} }, action) => {
     switch (action.type) {
         case UPDATE_PROFILE_REQUEST:
         case PASSWORD_UPDATE_REQUEST:
+        case UPDATE_USER_REQUEST:
+        case DELETE_USER_REQUEST:
             return {
                 ...state,
                 loading: true,
@@ -97,21 +101,40 @@ export const accountReducer = (state = { user: {} }, action) => {
 
         case UPDATE_PROFILE_SUCCESS:
         case PASSWORD_UPDATE_SUCCESS:
+        case UPDATE_USER_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 isUpdated: action.payload,
             };
 
+        case DELETE_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isDeleted: action.payload.success,
+                message: action.payload.message,
+            };
+
         case UPDATE_PROFILE_RESET:
         case PASSWORD_UPDATE_RESET:
+        case UPDATE_USER_RESET:
             return {
                 ...state,
                 isUpdated: false,
             };
 
+        case DELETE_USER_RESET:
+            return {
+                ...state,
+                isDeleted: false,
+            };
+
         case UPDATE_PROFILE_FAIL:
         case PASSWORD_UPDATE_FAIL:
+        case UPDATE_PROFILE_FAIL:
+        case UPDATE_USER_FAIL:
+        case DELETE_USER_FAIL:
             return {
                 ...state,
                 loading: false,
@@ -137,7 +160,7 @@ export const accountReducer = (state = { user: {} }, action) => {
  * @returns 
  */
 export const allUsersReducer = (state = { users: [] }, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case ALL_USERS_REQUEST:
             return {
                 ...state,
@@ -151,7 +174,7 @@ export const allUsersReducer = (state = { users: [] }, action) => {
                 users: action.payload,
             };
 
-        case ALL_USERS_FAIL: 
+        case ALL_USERS_FAIL:
             return {
                 ...state,
                 loading: false,

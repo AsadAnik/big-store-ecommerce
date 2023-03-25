@@ -6,9 +6,8 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background: url('https://www.advisoryexcellence.com/wp-content/uploads/2022/01/ECOMMERCE-PHOTO.jpg') no-repeat center center fixed;
+    background: url('../../../assets/cover.jpg') no-repeat center center fixed;
     background-size: cover;
-    z-index: 1;
   }
   .newProductContainer h1 {
     color: rgba(0, 0, 0, 0.733);

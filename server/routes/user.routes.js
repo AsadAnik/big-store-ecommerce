@@ -17,7 +17,7 @@ const uploadImage = require('../middleware/uploadImage');
  */
 router.route('/profile')
     .get(getUserDetails)
-    .put(uploadImage.single("avatar"), updateUserDetails);
+    .put(uploadImage("avatars", "avatar"), updateUserDetails);
 
 /**
  * ----- Update / Change Password -----
